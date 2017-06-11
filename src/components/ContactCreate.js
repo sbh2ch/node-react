@@ -34,7 +34,9 @@ export default class ContactCreate extends React.Component {
         this.setState({
             name: '',
             phone: ''
-        })
+        });
+
+        this.nameInput.focus();
     };
 
     handleKeyPress(e) {
@@ -49,10 +51,10 @@ export default class ContactCreate extends React.Component {
                 <h2>create contact</h2>
                 <p>
                     <input type="text" name="name" placeholder="name" value={this.state.name}
-                           onChange={this.handleChange}/>
+                           onChange={this.handleChange} ref={(ref) => {this.nameInput = ref;}}/>
                     <input type="text" name="phone" placeholder="phone" value={this.state.phone}
                            onChange={this.handleChange}
-                            onKeyPress={this.handleKeyPress}
+                           onKeyPress={this.handleKeyPress}
                     />
                 </p>
                 <button onClick={this.handleClick}>create</button>
